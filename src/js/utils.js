@@ -3,6 +3,15 @@ import { fetchData } from "./api.js";
 const usersDataUrl = "/data/users.json";
 const postsDataUrl = "/data/posts.json";
 
+// Check if the user is logged in
+export const checkUserSession = () => {
+  const currentUser = localStorage.getItem("currentUser");
+  if (!currentUser) {
+    // Redirect to the homepage if the user is not logged in
+    window.location.href = "../../index.html";
+  }
+}
+
 // Load users with LocalStorage persistence
 export const loadUsers = async () => {
   const storedUsers = localStorage.getItem("usersData");
@@ -13,6 +22,13 @@ export const loadUsers = async () => {
     localStorage.setItem("usersData", JSON.stringify(users));
     return users;
   }
+};
+
+// Save a new user to LocalStorage
+export const saveNewUser = async (newUser) => {
+  const users = await loadUsers();
+  users.push(newUser);
+  localStorage.setItem("usersData", JSON.stringify(users));
 };
 
 // Retrieve a user by their ID

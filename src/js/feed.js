@@ -1,7 +1,7 @@
-import { loadPosts } from "./utils.js";
+import { loadPosts, checkUserSession } from "./utils.js";
 import { createPostElement } from "./post.js";
 
-// Function to load and display the feed
+// Load and display the feed
 async function loadFeed() {
   const posts = await loadPosts();
 
@@ -15,5 +15,8 @@ async function loadFeed() {
   });
 }
 
-// Load the feed once the DOM is fully loaded
-window.addEventListener("DOMContentLoaded", loadFeed);
+// Check user session and load the feed once the DOM is fully loaded
+window.addEventListener("DOMContentLoaded", () => {
+  checkUserSession();
+  loadFeed();
+});
