@@ -1,0 +1,34 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+.hidden {
+    display: none;
+}
+.avatar-option {
+    cursor: pointer;
+    border: 2px solid transparent; /* Par défaut, pas de bordure visible */
+    border-radius: 8px;
+}
+
+.avatar-option.selected {
+    border-color: #4CAF50; /* Couleur de la bordure lorsqu'un avatar est sélectionné */
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.6); /* Ombre pour plus de visibilité */
+}
+
