@@ -1,0 +1,82 @@
+[
+  {
+    "id": "post_1",
+    "user_id": "user_4",
+    "content": "J'ai profité d'un magnifique lever de soleil à la plage ! ☀️",
+    "image": "post_1.webp",
+    "reactions": {
+      "like": 25,
+      "dislike": 5,
+      "love": 20
+    },
+    "comments": [
+      {
+        "user_id": "user_2",
+        "content": "Content d'apprendre cela !",
+        "timestamp": "2024-10-12T14:23:31.875082"
+      },
+      {
+        "user_id": "user_1",
+        "content": "Content d'apprendre cela !",
+        "timestamp": "2024-10-22T14:23:31.875105"
+      }
+    ],
+    "date": "2024-11-11T14:23:31.875082"
+  },
+  {
+    "id": "post_2",
+    "user_id": "user_3",
+    "content": "Ravi d'annoncer que je vais animer une session en direct ce week-end !",
+    "image": "post_2.webp",
+    "reactions": {
+      "like": 47,
+      "dislike": 18,
+      "love": 22
+    },
+    "comments": [
+      {
+        "user_id": "user_4",
+        "content": "On dirait que tu as passé un super moment !",
+        "timestamp": "2024-10-25T14:23:31.875138"
+      },
+      {
+        "user_id": "user_5",
+        "content": "Je vais sûrement y jeter un oeil.",
+        "timestamp": "2024-10-18T14:23:31.875148"
+      }
+    ],
+    "date": "2024-11-11T16:23:31.875082"
+  },
+  {
+    "id": "post_3",
+    "user_id": "user_1",
+    "content": "Je suis passionnée par ce nouveau livre que j'ai commencé à lire 📖😺.",
+    "image": "post_3.webp",
+    "reactions": {
+      "like": 7,
+      "dislike": 18,
+      "love": 21
+    },
+    "comments": [
+      {
+        "user_id": "user_3",
+        "content": "C'est quoi le titre ?",
+        "timestamp": "2024-10-07T14:23:31.875170"
+      }
+    ],
+    "date": "2024-11-11T17:23:31.875082"
+  },
+  {
+    "id": "post_4",
+    "user_id": "user_1",
+    "content": "Quel bon moment passé avec des amis au festival de musique !",
+    "image": "post_4.webp",
+    "reactions": {
+      "like": 45,
+      "dislike": 18,
+      "love": 25
+    },
+    "comments": [],
+    "date": "2024-11-11T20:23:31.875082"
+  }
+]
