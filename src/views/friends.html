@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/friends.css" />
+  <title>Listes des Amis</title>
+</head>
+<body>
+  <h1>Mes Amis</h1>
+
+  <!-- Search bar for filtering friends -->
+  <input type="text" id="search-bar" placeholder="Search friends by name..." />
+
+  <!-- Friend list container -->
+  <ul id="friends-list">
+    <li class="draggable-item" draggable="true">
+      <img src="../../assets/images/profiles/Alice_Dupont.webp" alt="Alice Dupont's profile picture" class="profile-pic" width="50" height="50" />
+      <div class="friend-details">
+        <span class="friend-name">Alice Dupont</span>
+        <a href="messaging.html" class="message-link">Message</a>
+        <a href="profile.html?id=user_1" class="profile-link">View Profile</a>
+      </div>
+    </li>
+    <li class="draggable-item" draggable="true">
+      <img src="../../assets/images/profiles/Alain_Mabanckou.webp" alt="Alain Mabanckou's profile picture" class="profile-pic" width="50" height="50" />
+      <div class="friend-details">
+        <span class="friend-name">Alain Mabanckou</span>
+        <a href="messaging.html" class="message-link">Message</a>
+        <a href="profile.html?id=user_2" class="profile-link">View Profile</a>
+      </div>
+    </li>
+    <li class="draggable-item" draggable="true">
+      <img src="../../assets/images/profiles/Carole_Lefevre.webp" alt="Carole Lefevre's profile picture" class="profile-pic" width="50" height="50" />
+      <div class="friend-details">
+        <span class="friend-name">Carole Lefevre</span>
+        <a href="messaging.html" class="message-link">Message</a>
+        <a href="profile.html?id=user_3" class="profile-link">View Profile</a>
+      </div>
+    </li>
+    <li class="draggable-item" draggable="true">
+      <img src="../../assets/images/profiles/Rachid_Tawfiq.webp" alt="Rachid Tawfiq's profile picture" class="profile-pic" width="50" height="50" />
+      <div class="friend-details">
+        <span class="friend-name">Rachid Tawfiq</span>
+        <a href="messaging.html" class="message-link">Message</a>
+        <a href="profile.html?id=user_4" class="profile-link">View Profile</a>
+      </div>
+    </li>
+    <li class="draggable-item" draggable="true">
+      <img src="../../assets/images/profiles/Evelyne_Roux.webp" alt="Evelyne Roux's profile picture" class="profile-pic" width="50" height="50" />
+      <div class="friend-details">
+        <span class="friend-name">Evelyne Roux</span>
+        <a href="messaging.html" class="message-link">Message</a>
+        <a href="profile.html?id=user_5" class="profile-link">View Profile</a>
+      </div>
+    </li>
+  </ul>
+
+  <script src="../js/friends.js" type="module"></script>
+</body>
+</html>
