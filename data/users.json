@@ -1,32 +1,40 @@
 [
-    {
-        "id": "user_1",
-        "name": "Alice Dupont",
-        "profile_picture": "Alice_Dupont.webp",
-        "bio": "Passionnée de voyages et de photographie."
-    },
-    {
-        "id": "user_2",
-        "name": "Alain Mabanckou",
-        "profile_picture": "Alain_Mabanckou.webp",
-        "bio": "Développeur web et amateur de technologie."
-    },
-    {
-        "id": "user_3",
-        "name": "Carole Lefevre",
-        "profile_picture": "Carole_Lefevre.webp",
-        "bio": "Fan de musique et organisatrice d'événements."
-    },
-    {
-        "id": "user_4",
-        "name": "Rachid Tawfiq",
-        "profile_picture": "Rachid_Tawfiq.webp",
-        "bio": "Explorateur urbain et photographe amateur."
-    },
-    {
-        "id": "user_5",
-        "name": "Evelyne Roux",
-        "profile_picture": "Evelyne_Roux.webp",
-        "bio": "Amoureuse des livres et passionnée de littérature."
-    }
+  {
+    "id": "user_1",
+    "name": "Alice Dupont",
+    "profile_picture": "Alice_Dupont.webp",
+    "bio": "Passionnée de voyages et de photographie.",
+    "reactions": [
+      { "post_id": "post_4", "reaction_type": "like" },
+      { "post_id": "post_4", "reaction_type": "love" }
+    ]
+  },
+  {
+    "id": "user_2",
+    "name": "Alain Mabanckou",
+    "profile_picture": "Alain_Mabanckou.webp",
+    "bio": "Développeur web et amateur de technologie.",
+    "reactions": []
+  },
+  {
+    "id": "user_3",
+    "name": "Carole Lefevre",
+    "profile_picture": "Carole_Lefevre.webp",
+    "bio": "Fan de musique et organisatrice d'événements.",
+    "reactions": []
+  },
+  {
+    "id": "user_4",
+    "name": "Rachid Tawfiq",
+    "profile_picture": "Rachid_Tawfiq.webp",
+    "bio": "Explorateur urbain et photographe amateur.",
+    "reactions": []
+  },
+  {
+    "id": "user_5",
+    "name": "Evelyne Roux",
+    "profile_picture": "Evelyne_Roux.webp",
+    "bio": "Amoureuse des livres et passionnée de littérature.",
+    "reactions": []
+  }
 ]
