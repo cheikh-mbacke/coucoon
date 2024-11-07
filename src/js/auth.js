@@ -42,6 +42,7 @@ async function handleSignup(event, selectedAvatar) {
     name: name,
     profile_picture: selectedAvatar,
     bio: bio,
+    reactions: [],
   };
 
   // Save the user in LocalStorage for the current session
