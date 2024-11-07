@@ -1,0 +1,62 @@
+.draggable-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    cursor: grab;
+    background-color: #f9f9f9;
+    transition: transform 0.2s;
+}
+
+.draggable-item.dragging {
+    opacity: 0.5;
+    background-color: #e0e0e0;
+    transform: scale(1.02);
+}
+
+.drop-target {
+    border: 2px dashed #007bff;
+    background-color: #f0f8ff;
+}
+
+#friends-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#friends-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.message-link, .profile-link {
+    cursor: default;
+}
+.profile-pic {
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.friend-details {
+    flex-grow: 1;
+}
+
+.friend-name {
+    font-weight: bold;
+}
+
+.friend-bio {
+    margin: 5px 0;
+}
+
+.message-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.message-link:hover {
+    text-decoration: underline;
+}
