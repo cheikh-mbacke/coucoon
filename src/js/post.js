@@ -11,15 +11,25 @@ export async function createPostElement(post) {
   }
 
   const postElement = document.createElement("article");
-  postElement.classList.add("post");
+  postElement.classList.add("post"); // Utilise la classe post définie en CSS
 
   // User info section
   const userElement = document.createElement("div");
   userElement.classList.add("user-info");
   userElement.innerHTML = `
-    <img src="/assets/images/profiles/${user.profile_picture}" alt="${user.name}" class="user-pic" width="50" height="50">
+    <img src="/assets/images/profiles/${user.profile_picture}" alt="${
+    user.name
+  }" class="user-pic" width="50" height="50">
     <div>
       <h3>${user.name}</h3>
+      <span class="post-date">${new Date(post.date).toLocaleDateString(
+        "fr-FR",
+        {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }
+      )}</span>
     </div>
   `;
 
@@ -44,20 +54,11 @@ export async function createPostElement(post) {
   // Add reaction buttons
   const reactionsElement = createReactionButtons(reactions, post);
 
-  // Post date
-  const dateElement = document.createElement("p");
-  dateElement.classList.add("post-date");
-  dateElement.textContent = new Date(post.date).toLocaleDateString("fr-FR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
   // Comments section
   const commentList = document.createElement("div");
   commentList.classList.add("comment-list");
 
-  // Display existing comments using the new unified function
+  // Display existing comments
   for (const comment of post.comments) {
     const commentElement = await createCommentOrReplyElement(
       comment,
@@ -75,7 +76,6 @@ export async function createPostElement(post) {
   postElement.appendChild(userElement);
   postElement.appendChild(contentElement);
   postElement.appendChild(reactionsElement);
-  postElement.appendChild(dateElement);
   postElement.appendChild(commentList);
   postElement.appendChild(commentForm);
 
@@ -144,8 +144,8 @@ function createCommentForm(post, commentList) {
   const commentForm = document.createElement("div");
   commentForm.classList.add("comment-form");
   commentForm.innerHTML = `
-    <input type="text" placeholder="Add a comment..." class="comment-input">
-    <button class="comment-submit">Comment</button>
+    <input type="text" placeholder="écrire un commentaire" class="comment-input">
+    <button class="comment-submit">Commenter</button>
   `;
 
   const commentInput = commentForm.querySelector(".comment-input");
@@ -166,7 +166,12 @@ function createCommentForm(post, commentList) {
       post.comments.push(newComment);
       await updatePostInLocalStorage(post);
 
-      const commentElement = await createCommentOrReplyElement(newComment, post, null, true);
+      const commentElement = await createCommentOrReplyElement(
+        newComment,
+        post,
+        null,
+        true
+      );
       commentList.appendChild(commentElement);
 
       commentInput.value = "";
@@ -249,11 +254,15 @@ function createReactionButtons(reactions, post) {
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
         button.querySelector(".reaction-count").textContent =
           post.reactions[type];
-
-        if (type === "love") {
-          button.innerHTML = `❤️ <span class="reaction-count">${post.reactions[type]}</span>`;
-          triggerParticleAnimation(button, "❤️");
+        if (type === "like") {
+          emoji = "👍";
+        } else if (type === "dislike") {
+          emoji = "👎";
+        } else if (type === "love") {
+          emoji = "❤️";
         }
+        button.innerHTML = `${emoji} <span class="reaction-count">${post.reactions[type]}</span>`;
+        triggerParticleAnimation(button, emoji);
 
         // Disable opposite button if like/dislike was clicked
         if (oppositeType) {
@@ -288,7 +297,12 @@ function createReactionButtons(reactions, post) {
   return buttonsContainer;
 }
 
-async function createCommentOrReplyElement(item, post, parentItem = null, isComment = true) {
+async function createCommentOrReplyElement(
+  item,
+  post,
+  parentItem = null,
+  isComment = true
+) {
   const elementType = isComment ? "comment" : "reply";
   const element = document.createElement("div");
   element.classList.add(elementType);
@@ -304,6 +318,10 @@ async function createCommentOrReplyElement(item, post, parentItem = null, isComm
   authorPicElement.height = isComment ? 30 : 25;
   authorPicElement.classList.add(`${elementType}-author-pic`);
 
+  // Create author and content wrapper
+  const contentWrapper = document.createElement("div");
+  contentWrapper.classList.add(`${elementType}-content-wrapper`);
+
   // Create author element
   const authorElement = document.createElement("span");
   authorElement.classList.add(`${elementType}-author`);
@@ -314,6 +332,13 @@ async function createCommentOrReplyElement(item, post, parentItem = null, isComm
   contentElement.classList.add(`${elementType}-content`);
   contentElement.textContent = item.content;
 
+  contentWrapper.appendChild(authorElement);
+  contentWrapper.appendChild(contentElement);
+
+  // Create footer for timestamp and reply button
+  const footerElement = document.createElement("div");
+  footerElement.classList.add("comment-footer");
+
   // Create timestamp element
   const timestampElement = document.createElement("span");
   timestampElement.classList.add(`${elementType}-timestamp`);
@@ -322,7 +347,11 @@ async function createCommentOrReplyElement(item, post, parentItem = null, isComm
   // Create reply button
   const replyButton = document.createElement("button");
   replyButton.classList.add("reply-button");
-  replyButton.textContent = "Reply";
+  replyButton.textContent = "Répondre";
+
+  // Append timestamp and reply button to footer
+  footerElement.appendChild(timestampElement);
+  footerElement.appendChild(replyButton);
 
   // Create containers for replies
   const replyContainer = document.createElement("div");
@@ -334,7 +363,12 @@ async function createCommentOrReplyElement(item, post, parentItem = null, isComm
   // Handle existing replies
   if (item.replies && item.replies.length > 0) {
     for (const reply of item.replies) {
-      const replyElement = await createCommentOrReplyElement(reply, post, item, false);
+      const replyElement = await createCommentOrReplyElement(
+        reply,
+        post,
+        item,
+        false
+      );
       replyList.appendChild(replyElement);
     }
   }
@@ -345,11 +379,11 @@ async function createCommentOrReplyElement(item, post, parentItem = null, isComm
 
     const replyInput = document.createElement("input");
     replyInput.classList.add("reply-input");
-    replyInput.placeholder = "Write a reply...";
+    replyInput.placeholder = "écrire une réponse...";
 
     const replySubmit = document.createElement("button");
     replySubmit.classList.add("reply-submit");
-    replySubmit.textContent = "Post Reply";
+    replySubmit.textContent = "Envoyer";
 
     replySubmit.addEventListener("click", async () => {
       const replyText = replyInput.value.trim();
@@ -360,7 +394,7 @@ async function createCommentOrReplyElement(item, post, parentItem = null, isComm
           user_id: currentUser.id,
           content: replyText,
           timestamp: new Date().toISOString(),
-          replies: [] // Initialize nested replies array
+          replies: [], // Initialize nested replies array
         };
 
         // Ensure replies array exists
@@ -369,7 +403,12 @@ async function createCommentOrReplyElement(item, post, parentItem = null, isComm
 
         await updatePostInLocalStorage(post);
 
-        const replyElement = await createCommentOrReplyElement(newReply, post, item, false);
+        const replyElement = await createCommentOrReplyElement(
+          newReply,
+          post,
+          item,
+          false
+        );
         replyList.appendChild(replyElement);
 
         replyContainer.innerHTML = ""; // Clear input after submission
@@ -382,10 +421,8 @@ async function createCommentOrReplyElement(item, post, parentItem = null, isComm
 
   // Append all elements
   element.appendChild(authorPicElement);
-  element.appendChild(authorElement);
-  element.appendChild(contentElement);
-  element.appendChild(timestampElement);
-  element.appendChild(replyButton);
+  element.appendChild(contentWrapper);
+  element.appendChild(footerElement);
   element.appendChild(replyContainer);
   element.appendChild(replyList);
 

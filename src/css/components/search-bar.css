@@ -1,0 +1,26 @@
+#search-bar {
+  display: block;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--card-background);
+  box-shadow: inset 5px 5px 10px var(--shadow-dark),
+    inset -5px -5px 10px var(--shadow-light);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#search-bar:focus {
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}
+
+@media screen and (min-width: 1024px) {
+  #search-bar {
+    width: 60%;
+  }
+}

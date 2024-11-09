@@ -1,0 +1,37 @@
+.post-content {
+  margin: 15px 0;
+}
+
+.post-content p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.post {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  margin: 20px auto;
+  padding: 25px;
+  box-shadow: 0px 0px 3px 0px var(--shadow-dark);
+  max-width: 100%;
+}
+
+.post-date {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 5px;
+}
+
+.post-image {
+  cursor: pointer;
+  width: 100%;
+  border-radius: var(--border-radius);
+  margin-top: 15px;
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+  transition: transform 0.2s ease-in-out;
+}
+
+.post-image:hover {
+  transform: scale(1.05);
+}

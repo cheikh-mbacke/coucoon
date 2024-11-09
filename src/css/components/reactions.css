@@ -1,0 +1,55 @@
+.reactions-container {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.reaction-button {
+  background: var(--card-background);
+  border: none;
+  padding: 8px 15px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  box-shadow: 5px 5px 10px var(--shadow-dark),
+    -5px -5px 10px var(--shadow-light);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.reaction-button .reaction-count {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.reaction-button:active {
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}
+
+.reaction-button.active {
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+  color: var(--primary-color);
+}
+
+.particle {
+  position: absolute;
+  font-size: 1rem;
+  opacity: 0;
+  animation: particle-animation 1s forwards;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+@keyframes particle-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px) scale(0.5);
+    opacity: 0;
+  }
+}
