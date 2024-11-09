@@ -1,0 +1,60 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--background);
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px 20px 0 0;
+}
+
+.tab-button {
+  background: var(--background);
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px #c2cad6, -4px -4px 8px #ffffff;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.tab-button a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab-button:hover {
+  box-shadow: inset 4px 4px 8px #c2cad6, inset -4px -4px 8px #ffffff;
+  transform: scale(1.1);
+}
+
+.tab-button:active {
+  box-shadow: inset 4px 4px 8px #c2cad6, inset -4px -4px 8px #ffffff;
+}
+
+.tab-button.active {
+  color: var(--primary-color);
+}
+
+.tab-button a i {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.tab-button a span {
+  font-size: 0.8rem;
+  line-height: 1;
+}

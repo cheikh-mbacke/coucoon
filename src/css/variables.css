@@ -1,0 +1,11 @@
+:root {
+  --background: #e0e5ec;
+  --text-color: #333;
+  --primary-color: #ff4757;
+  --shadow-light: #ffffff;
+  --shadow-dark: #a3b1c6;
+  --card-background: #fff;
+  --border-radius: 15px;
+  --comment-indent: 20px;
+  --max-content-width: 800px;
+}

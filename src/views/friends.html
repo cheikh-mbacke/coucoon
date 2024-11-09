@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="../css/friends.css" />
     <title>Listes des Amis</title>
   </head>
   <body>
-    <h1>Mes Amis</h1>
+    <header>
+      <h1>Mes Ami(e)s</h1>
+    </header>
 
     <!-- Search bar for filtering friends -->
     <input
       type="text"
       id="search-bar"
-      placeholder="Search friends by name..."
+      placeholder="Rechercher un(e) ami(e) par son nom..."
     />
 
     <!-- Friend list container -->
@@ -99,7 +108,24 @@
         </div>
       </li>
     </ul>
-
+    
+    <div class="tab-bar">
+      <button class="tab-button" id="home-button" title="Fil d'actualité">
+        <a href="./feed.html">
+          <i class="fa-solid fa-newspaper"></i>
+        </a>
+      </button>
+      <button class="tab-button" id="friends-button" title="Mes ami(e)s">
+        <a href="./friends.html">
+          <i class="fas fa-user-friends"></i>
+        </a>
+      </button>
+      <button class="tab-button" id="messages-button" title="Messagerie">
+        <a href="./messaging.html">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </button>
+    </div>
     <script src="../js/friends.js" type="module"></script>
   </body>
 </html>

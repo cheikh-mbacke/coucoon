@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/feed.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/feed.css" />
     <title>Feed</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Fil d'actualité</h1>
+      <h1>Fil d'actualité</h1>
     </header>
 
     <main>
-        <section id="posts-container">
-             <!-- Container for dynamically loaded posts -->
-        </section>
+      <section id="posts-container" class="posts-container">
+        <!-- Container for dynamically loaded posts -->
+      </section>
     </main>
+
+    <div class="tab-bar">
+      <button class="tab-button" id="home-button" title="Fil d'actualité">
+        <a href="./feed.html">
+          <i class="fa-solid fa-newspaper"></i>
+        </a>
+      </button>
+      <button class="tab-button" id="friends-button" title="Mes ami(e)s">
+        <a href="./friends.html">
+          <i class="fas fa-user-friends"></i>
+        </a>
+      </button>
+      <button class="tab-button" id="messages-button" title="Messagerie">
+        <a href="./messaging.html">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </button>
+    </div>
     <script src="../js/feed.js" type="module"></script>
-</body>
+  </body>
 </html>
