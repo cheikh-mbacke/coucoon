@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accueil</title>
-    <link rel="stylesheet" href="src/css/main.css">
-</head>
-<body>
-    <div id="signup-modal" class="modal hidden">
+    <link rel="stylesheet" href="src/css/main.css" />
+  </head>
+  <body>
+    <main class="modal-container">
+      <div id="signup-modal" class="modal hidden">
         <div class="modal-content">
-            <h2>Inscription</h2>
-            <form id="signup-form">
-                <label for="name">Nom (obligatoire) :</label>
-                <input type="text" id="name" name="name" required>
+          <h2>Inscription</h2>
+          <form id="signup-form">
+            <label for="name">Nom (obligatoire) :</label>
+            <input type="text" id="name" name="name" required />
 
-                <label>Choisissez un avatar :</label>
-                <div id="avatar-selection">
-                    <img src="assets/images/profiles/avatar-man.webp" width="50" height="50" class="avatar-option" data-avatar="avatar-man.png">
-                    <img src="assets/images/profiles/avatar-woman.webp" width="50" height="50" class="avatar-option" data-avatar="avatar-woman.png">
-                </div>
-                
-                <label for="bio">Bio (facultatif) :</label>
-                <textarea id="bio" name="bio"></textarea>
+            <label>Choisissez un avatar :</label>
+            <div id="avatar-selection">
+              <img
+                src="assets/images/profiles/avatar-man.webp"
+                width="50"
+                height="50"
+                class="avatar-option"
+                data-avatar="avatar-man.webp"
+              />
+              <img
+                src="assets/images/profiles/avatar-woman.webp"
+                width="50"
+                height="50"
+                class="avatar-option"
+                data-avatar="avatar-woman.webp"
+              />
+            </div>
 
-                <button type="submit">S'inscrire</button>
-            </form>
+            <label for="bio">Bio (facultatif) :</label>
+            <textarea id="bio" name="bio"></textarea>
+
+            <button type="submit">S'inscrire</button>
+          </form>
         </div>
-    </div>
+      </div>
+    </main>
 
     <script src="src/js/index.js" type="module"></script>
-</body>
+  </body>
 </html>

@@ -1,0 +1,128 @@
+.comment-list {
+  margin-top: 25px;
+}
+
+.comment {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.comment-footer {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.reply {
+  margin-left: var(--comment-indent);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 8px;
+  position: relative;
+}
+
+.reply::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--comment-indent) / 2);
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--shadow-dark);
+  opacity: 0.3;
+}
+
+.comment-author-pic,
+.reply-author-pic {
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.comment-author,
+.reply-author {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.comment-content,
+.reply-content {
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+.comment-timestamp,
+.reply-timestamp {
+  font-size: 0.8rem;
+  color: #666;
+  margin-right: 10px;
+}
+
+.reply-button {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.reply-container {
+  margin: 10px 0;
+}
+
+.reply-input {
+  width: calc(100% - 20px);
+  padding: 8px;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--card-background);
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+  margin: 5px 0;
+}
+
+.reply-submit {
+  padding: 8px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+comment-form {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.comment-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--card-background);
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}
+
+.comment-submit {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  background: var(--card-background);
+  cursor: pointer;
+  box-shadow: 5px 5px 10px var(--shadow-dark),
+    -5px -5px 10px var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.comment-submit:active {
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}

@@ -1,62 +1,123 @@
-.draggable-item {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    cursor: grab;
-    background-color: #f9f9f9;
-    transition: transform 0.2s;
-}
+@import url("./variables.css");
+@import url("./global.css");
+@import url("./components/tab-bar.css");
+@import url("./components/search-bar.css");
 
-.draggable-item.dragging {
-    opacity: 0.5;
-    background-color: #e0e0e0;
-    transform: scale(1.02);
-}
-
-.drop-target {
-    border: 2px dashed #007bff;
-    background-color: #f0f8ff;
+header h1 {
+  margin-bottom: 20px;
 }
 
 #friends-list {
-    list-style-type: none;
-    padding: 0;
+  list-style: none;
+  padding: 0 0.5em;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-#friends-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.draggable-item {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 5px 15px var(--shadow-dark),
+    -5px -5px 15px var(--shadow-light);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.message-link, .profile-link {
-    cursor: default;
+.draggable-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 8px 8px 20px var(--shadow-dark),
+    -8px -8px 20px var(--shadow-light);
 }
+
 .profile-pic {
-    border-radius: 50%;
-    margin-right: 15px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
+  transition: transform 0.2s ease;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.profile-pic:hover {
+  transform: scale(1.1);
 }
 
 .friend-details {
-    flex-grow: 1;
+  text-align: center;
 }
 
 .friend-name {
-    font-weight: bold;
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 10px;
 }
 
-.friend-bio {
-    margin: 5px 0;
+.message-link,
+.profile-link {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  background: var(--card-background);
+  box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
+  transition: all 0.3s ease;
+  display: block;
 }
 
 .message-link {
-    color: #007bff;
-    text-decoration: none;
+  margin-right: 10px;
 }
 
-.message-link:hover {
-    text-decoration: underline;
+.message-link:hover,
+.profile-link:hover {
+  color: var(--text-color);
+  box-shadow: inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
 }
+
+@media screen and (max-width: 768px) {
+  .draggable-item {
+    padding: 15px;
+  }
+
+  .friend-name {
+    font-size: 1.2rem;
+  }
+
+  .message-link,
+  .profile-link {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  #friends-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .draggable-item {
+    padding: 25px;
+  }
+
+  .friend-name {
+    font-size: 1.6rem;
+  }
+
+  .message-link,
+  .profile-link {
+    font-size: 1.1rem;
+  }
+}
+

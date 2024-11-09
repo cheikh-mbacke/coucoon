@@ -1,11 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello</h1>
-</body>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/messaging.css" />
+    <title>Messagerie</title>
+  </head>
+  <body>
+    <div>
+          <div class="messaging-layout">
+      <h1>Messagerie</h1>
+      <div id="messaging-container">
+        <aside id="conversation-list">
+          <!-- Liste of conversations -->
+        </aside>
+        <main id="message-view">
+          <div id="message-history">
+            <!-- Historical messages -->
+          </div>
+          <div id="message-input">
+            <input
+              type="text"
+              id="new-message"
+              placeholder="Écrire un message..."
+            />
+            <button id="send-message">Envoyer</button>
+          </div>
+        </main>
+      </div>
+    </div>
+          <div class="tab-bar">
+        <button class="tab-button" id="home-button" title="Fil d'actualité">
+          <a href="./feed.html">
+            <i class="fa-solid fa-newspaper"></i>
+          </a>
+        </button>
+        <button class="tab-button" id="friends-button" title="Mes ami(e)s">
+          <a href="./friends.html">
+            <i class="fas fa-user-friends"></i>
+          </a>
+        </button>
+        <button class="tab-button" id="messages-button" title="Messagerie">
+          <a href="./messaging.html">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </button>
+      </div>
+    </div>
+    </div>
+    <script src="../js/messaging.js" type="module"></script>
+  </body>
 </html>
