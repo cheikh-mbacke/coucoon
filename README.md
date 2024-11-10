@@ -71,7 +71,7 @@ git clone https://github.com/cheikh-mbacke/coucoon.git
 
 ## Organisation du développement
 
-* **Documentation** : [Le cahier des charges]([assets/ressources/Cahier-des-charges.pdf](https://github.com/cheikh-mbacke/coucoon/tree/main/assets/ressoucres/Cahier-des-charges.pdf), [les spécifications fonctionnelles]([assets/ressources/specs-fonctionnelles.pdf](https://github.com/cheikh-mbacke/coucoon/tree/main/assets/ressoucres/specs-fonctionnelles.pdf) et [les user stories](https://github.com/cheikh-mbacke/coucoon/issues?q=is%3Aissue) sont disponibles dans l'onglet issues.
+* **Documentation** : [Le cahier des charges](https://github.com/cheikh-mbacke/coucoon/tree/main/assets/ressoucres/Cahier-des-charges.pdf), [les spécifications fonctionnelles](https://github.com/cheikh-mbacke/coucoon/tree/main/assets/ressoucres/specs-fonctionnelles.pdf) et [les user stories](https://github.com/cheikh-mbacke/coucoon/issues?q=is%3Aissue) sont disponibles dans l'onglet issues.
 * **Gestion des tickets** : L'organisation des tickets a été réalisée via un [tableau Kanban sur GitHub](https://github.com/users/cheikh-mbacke/projects/2).
 
 ## Démonstration
