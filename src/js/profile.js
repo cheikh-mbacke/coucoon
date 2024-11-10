@@ -27,7 +27,7 @@ async function displayUserProfile(userId) {
     document.getElementById("profile-name").textContent = user.name;
     document.getElementById(
       "profile-picture"
-    ).src = `/assets/images/profiles/${user.profile_picture}`;
+    ).src = `../../assets/images/profiles/${user.profile_picture}`;
     document.getElementById("profile-bio").textContent = user.bio;
   } else {
     document.getElementById("profile-name").textContent = "User not found";

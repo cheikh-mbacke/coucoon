@@ -17,7 +17,7 @@ export async function createPostElement(post) {
   const userElement = document.createElement("div");
   userElement.classList.add("user-info");
   userElement.innerHTML = `
-    <img src="/assets/images/profiles/${user.profile_picture}" alt="${
+    <img src="../../assets/images/profiles/${user.profile_picture}" alt="${
     user.name
   }" class="user-pic" width="50" height="50">
     <div>
@@ -85,7 +85,7 @@ export async function createPostElement(post) {
 // Helper function to create image with fullscreen feature
 function createImageWithFullscreenFeature(imagePath) {
   const imageElement = document.createElement("img");
-  imageElement.src = `/assets/images/posts/${imagePath}`;
+  imageElement.src = `../../assets/images/posts/${imagePath}`;
   imageElement.alt = "Post image";
   imageElement.classList.add("post-image");
 
@@ -313,7 +313,7 @@ async function createCommentOrReplyElement(
 
   // Create profile picture
   const authorPicElement = document.createElement("img");
-  authorPicElement.src = `/assets/images/profiles/${authorProfilePic}`;
+  authorPicElement.src = `../../assets/images/profiles/${authorProfilePic}`;
   authorPicElement.width = isComment ? 30 : 25;
   authorPicElement.height = isComment ? 30 : 25;
   authorPicElement.classList.add(`${elementType}-author-pic`);

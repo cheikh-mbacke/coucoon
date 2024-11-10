@@ -1,9 +1,9 @@
 import { fetchData } from "./api.js";
 import { handleError } from "./errorHandler.js";
 
-const usersDataUrl = "/data/users.json";
-const postsDataUrl = "/data/posts.json";
-const conversationsDataUrl = "/data/conversations.json";
+const usersDataUrl = "../../data/users.json";
+const postsDataUrl = "../../data/posts.json";
+const conversationsDataUrl = "../../data/conversations.json";
 
 // Check if the user is logged in
 export const checkUserSession = () => {
