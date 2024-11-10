@@ -1,24 +1,28 @@
 import { fetchData } from "./api.js";
 import { handleError } from "./errorHandler.js";
 
-const baseURL = window.location.hostname === 'localhost' ? '../../data/' : 'https://cheikh-mbacke.github.io/coucoon/data/';
+// Define base URL depending on the environment (local or GitHub Pages)
+const baseURL =
+  window.location.hostname === "localhost"
+    ? "../../data/"
+    : "https://cheikh-mbacke.github.io/coucoon/data/";
 
+// Define URLs for the data files to be fetched
 const usersDataUrl = `${baseURL}users.json`;
 const postsDataUrl = `${baseURL}posts.json`;
 const conversationsDataUrl = `${baseURL}conversations.json`;
 
-// Check if the user is logged in
+// Check if a user is logged in
 export const checkUserSession = () => {
   const currentUser = localStorage.getItem("currentUser");
   if (!currentUser) {
-    // Redirect to the homepage if the user is not logged in
     window.location.href = "../../index.html";
   }
 };
 
-// Load users with LocalStorage persistence
+// Load user data with LocalStorage persistence
 export const loadUsers = async () => {
-  const storedUsers = localStorage.getItem("usersData");
+  const storedUsers = localStorage.getItem("usersData"); 
   if (storedUsers) {
     return JSON.parse(storedUsers);
   } else {
@@ -31,19 +35,19 @@ export const loadUsers = async () => {
 // Save a new user to LocalStorage
 export const saveNewUser = async (newUser) => {
   const users = await loadUsers();
-  users.push(newUser);
+  users.push(newUser); 
   localStorage.setItem("usersData", JSON.stringify(users));
 };
 
 // Retrieve a user by their ID
 export const getUserById = async (userId) => {
-  const users = await loadUsers();
+  const users = await loadUsers(); 
   return users.find((user) => user.id === userId);
 };
 
-// Load posts with LocalStorage persistence
+// Load posts data with LocalStorage persistence
 export const loadPosts = async () => {
-  const storedPosts = localStorage.getItem("postsData");
+  const storedPosts = localStorage.getItem("postsData"); 
   if (storedPosts) {
     return JSON.parse(storedPosts);
   } else {
@@ -53,12 +57,12 @@ export const loadPosts = async () => {
   }
 };
 
-// Save updated posts to LocalStorage
+// To save updated posts to LocalStorage
 export const savePosts = (posts) => {
   localStorage.setItem("postsData", JSON.stringify(posts));
 };
 
-// Update a specific post in LocalStorage
+// To update a specific post in LocalStorage
 export const updatePostInLocalStorage = async (updatedPost) => {
   const posts = await loadPosts();
   const postIndex = posts.findIndex((post) => post.id === updatedPost.id);
@@ -69,7 +73,7 @@ export const updatePostInLocalStorage = async (updatedPost) => {
   }
 };
 
-// Load conversations with LocalStorage persistence
+// Load conversations data with LocalStorage persistence
 export const loadConversations = async () => {
   const storedConversations = localStorage.getItem("conversationsData");
   if (storedConversations) {
@@ -81,7 +85,7 @@ export const loadConversations = async () => {
   }
 };
 
-// Load conversations of the current user
+// Load only conversations of the current user
 export const loadUserConversations = async () => {
   const storedConversations = localStorage.getItem("conversationsData");
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -94,18 +98,18 @@ export const loadUserConversations = async () => {
     localStorage.setItem("conversationsData", JSON.stringify(conversations));
   }
 
-  // Filter conversations to only include those of the current user
+  // Filter and return only conversations that include the current user
   return conversations.filter((conv) =>
     conv.participants.includes(currentUser.id)
   );
 };
 
-// Update a specific conversation in LocalStorage
+// Update a user's conversations in LocalStorage
 export const updateUserConversations = async (conversations) => {
   localStorage.setItem("conversationsData", JSON.stringify(conversations));
-};
+}
 
-// Send a message in a conversation
+// Send a message in an existing conversation
 export const sendMessage = async (conversationId, newMessage) => {
   const conversations = await loadUserConversations();
   const conversation = conversations.find((conv) => conv.id === conversationId);
@@ -120,9 +124,9 @@ export const sendMessage = async (conversationId, newMessage) => {
   return conversation;
 };
 
+// G the latest message in a list of messages
 export function getLastMessage(messages) {
   return messages
-    .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
+    .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)) // Sort messages by timestamp
     .pop();
 }
-
