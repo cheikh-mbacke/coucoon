@@ -1,9 +1,11 @@
 import { fetchData } from "./api.js";
 import { handleError } from "./errorHandler.js";
 
-const usersDataUrl = "../../data/users.json";
-const postsDataUrl = "../../data/posts.json";
-const conversationsDataUrl = "../../data/conversations.json";
+const baseURL = window.location.hostname === 'localhost' ? '../../data/' : 'https://cheikh-mbacke.github.io/coucoon/data/';
+
+const usersDataUrl = `${baseURL}users.json`;
+const postsDataUrl = `${baseURL}posts.json`;
+const conversationsDataUrl = `${baseURL}conversations.json`;
 
 // Check if the user is logged in
 export const checkUserSession = () => {
